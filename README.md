@@ -1,8 +1,8 @@
 # Grok Bot Local Core
 
-Grok Bot Local is a desktop assistant with local conversations, memory, task checkpoints, schedules, and CLI and MCP connectors. This repository contains the open-source Electron app and agent runtime. It runs without the vendor app.
+The independently written code from Grok Bot Local. It includes an agent runtime, local conversation and memory storage, task checkpoints, scheduling, and CLI and MCP connectors. The desktop build and the vendor app are separate from this repository.
 
-## Run the desktop app
+## Run the demo
 
 Use Node.js 22 or later.
 
@@ -10,24 +10,11 @@ Use Node.js 22 or later.
 git clone https://github.com/G4rv19/grok-bot-local-core.git
 cd grok-bot-local-core
 npm ci
-npm start
-```
-
-Open **Settings** and choose **Sign in with ChatGPT**. After signing in, choose a model and send a message. To try the desktop app with a simulated model and a temporary profile, run `npm start -- --demo`.
-
-The app has per-Bot chats and workspaces, file attachments, task and schedule controls, and a connections panel. Interactive shell and connector actions require approval. The shell runs with your account's access. For scheduled tasks, keep the app running and your computer awake.
-
-The Electron app is intended for macOS, Windows, and Linux. The desktop workflow has been tested on Apple silicon macOS. The source launch uses npm, and this repository does not ship installers. Native mouse, keyboard, and screen control from the previous macOS build are not connected in the open-source app.
-
-## Run the tests and command-line demo
-
-```sh
 npm run demo -- "I prefer short answers."
 npm test
-npm run test:desktop
 ```
 
-The command-line demo runs an agent turn with a simulated model, saves a memory, and reloads it from disk. The desktop smoke test exercises the Electron window with a simulated model and a temporary profile. The runtime test suite uses Unix utilities, including `zip` and `unzip`.
+The demo runs one agent turn with a simulated model, saves a memory, and reloads it from disk. It uses a temporary directory and requires no API key, network access after installation, or Grok Bot installation. The full test suite uses Unix utilities, including `zip` and `unzip`.
 
 ## Use the runtime
 
@@ -38,7 +25,7 @@ The command-line demo runs an agent turn with a simulated model, saves a memory,
 
 Start with the [demo wiring](examples/demo.cjs) to embed the runtime in a Node.js application. The tests use a small local gateway schema fixture.
 
-The current desktop host and renderer live in `desktop/`. The Swift helper and renderer additions under `src/` are integration source from the earlier build.
+The macOS helper and renderer additions under `src/` are integration source. The demo has no desktop UI. The renderer additions depend on the desktop host, and the Swift helper uses macOS Accessibility and Screen Recording permissions.
 
 ## License
 
