@@ -1,0 +1,968 @@
+{
+  "computer_screenshot": [
+    [
+      [
+        "description"
+      ],
+      "Capture a visible app window or main display on a 1280 by 800 canvas. Returns an image and coordinate_token. Input activates the app and may move the real pointer. Mutations invalidate snapshots and coordinates: inspect again before the next action."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "oneOf"
+      ],
+      [
+        {
+          "type": "object",
+          "properties": {
+            "scope": {
+              "type": "string",
+              "const": "screen"
+            }
+          },
+          "required": [
+            "scope"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "scope": {
+              "type": "string",
+              "const": "app"
+            },
+            "pid": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "target_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "scope",
+            "pid",
+            "target_id"
+          ]
+        }
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "description"
+      ],
+      "Use the target object returned by computer_apps or computer_resolve_app. Omit only for whole-screen actions."
+    ]
+  ],
+  "computer_click": [
+    [
+      [
+        "description"
+      ],
+      "Click coordinates from a fresh screenshot. Input activates the app and may move the real pointer. Mutations invalidate snapshots and coordinates: inspect again before the next action."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "oneOf"
+      ],
+      [
+        {
+          "type": "object",
+          "properties": {
+            "scope": {
+              "type": "string",
+              "const": "screen"
+            }
+          },
+          "required": [
+            "scope"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "scope": {
+              "type": "string",
+              "const": "app"
+            },
+            "pid": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "target_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "scope",
+            "pid",
+            "target_id"
+          ]
+        }
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "description"
+      ],
+      "Use the target object returned by computer_apps or computer_resolve_app. Omit only for whole-screen actions."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "x",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "y",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "button",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "count",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "coordinate_token",
+        "description"
+      ],
+      "Required for coordinates: token from the latest screenshot. Invalidated by the next screenshot or any mutation."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "step",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "required"
+      ],
+      [
+        "x",
+        "y",
+        "coordinate_token"
+      ]
+    ]
+  ],
+  "computer_move": [
+    [
+      [
+        "description"
+      ],
+      "Move the real pointer to coordinates from a fresh screenshot. Input activates the app and may move the real pointer. Mutations invalidate snapshots and coordinates: inspect again before the next action."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "oneOf"
+      ],
+      [
+        {
+          "type": "object",
+          "properties": {
+            "scope": {
+              "type": "string",
+              "const": "screen"
+            }
+          },
+          "required": [
+            "scope"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "scope": {
+              "type": "string",
+              "const": "app"
+            },
+            "pid": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "target_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "scope",
+            "pid",
+            "target_id"
+          ]
+        }
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "description"
+      ],
+      "Use the target object returned by computer_apps or computer_resolve_app. Omit only for whole-screen actions."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "x",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "y",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "coordinate_token",
+        "description"
+      ],
+      "Required for coordinates: token from the latest screenshot. Invalidated by the next screenshot or any mutation."
+    ],
+    [
+      [
+        "inputSchema",
+        "required"
+      ],
+      [
+        "x",
+        "y",
+        "coordinate_token"
+      ]
+    ]
+  ],
+  "computer_drag": [
+    [
+      [
+        "description"
+      ],
+      "Drag between coordinates from a fresh screenshot. Input activates the app and may move the real pointer. Mutations invalidate snapshots and coordinates: inspect again before the next action."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "oneOf"
+      ],
+      [
+        {
+          "type": "object",
+          "properties": {
+            "scope": {
+              "type": "string",
+              "const": "screen"
+            }
+          },
+          "required": [
+            "scope"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "scope": {
+              "type": "string",
+              "const": "app"
+            },
+            "pid": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "target_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "scope",
+            "pid",
+            "target_id"
+          ]
+        }
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "description"
+      ],
+      "Use the target object returned by computer_apps or computer_resolve_app. Omit only for whole-screen actions."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "from",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "to",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "button",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "coordinate_token",
+        "description"
+      ],
+      "Required for coordinates: token from the latest screenshot. Invalidated by the next screenshot or any mutation."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "step",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "required"
+      ],
+      [
+        "from",
+        "to",
+        "coordinate_token"
+      ]
+    ]
+  ],
+  "computer_type": [
+    [
+      [
+        "description"
+      ],
+      "Type Unicode text. When element_id and snapshot_id are supplied, focus that accessibility element first. Input activates the app and may move the real pointer. Mutations invalidate snapshots and coordinates: inspect again before the next action."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "oneOf"
+      ],
+      [
+        {
+          "type": "object",
+          "properties": {
+            "scope": {
+              "type": "string",
+              "const": "screen"
+            }
+          },
+          "required": [
+            "scope"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "scope": {
+              "type": "string",
+              "const": "app"
+            },
+            "pid": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "target_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "scope",
+            "pid",
+            "target_id"
+          ]
+        }
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "description"
+      ],
+      "Use the target object returned by computer_apps or computer_resolve_app. Omit only for whole-screen actions."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "text",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "element_id",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "snapshot_id",
+        "description"
+      ],
+      "ID from the latest computer_app_state. Invalidated by another state read or mutation."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "coordinate_token",
+        "description"
+      ],
+      "Required for coordinates: token from the latest screenshot. Invalidated by the next screenshot or any mutation."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "step",
+        "description"
+      ]
+    ]
+  ],
+  "computer_key": [
+    [
+      [
+        "description"
+      ],
+      "Press a key or shortcut, such as Return, Tab or cmd+shift+s. Input activates the app and may move the real pointer. Mutations invalidate snapshots and coordinates: inspect again before the next action."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "oneOf"
+      ],
+      [
+        {
+          "type": "object",
+          "properties": {
+            "scope": {
+              "type": "string",
+              "const": "screen"
+            }
+          },
+          "required": [
+            "scope"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "scope": {
+              "type": "string",
+              "const": "app"
+            },
+            "pid": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "target_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "scope",
+            "pid",
+            "target_id"
+          ]
+        }
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "description"
+      ],
+      "Use the target object returned by computer_apps or computer_resolve_app. Omit only for whole-screen actions."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "key",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "step",
+        "description"
+      ]
+    ]
+  ],
+  "computer_scroll": [
+    [
+      [
+        "description"
+      ],
+      "Scroll at coordinates from a fresh screenshot. amount is 1–20 wheel ticks. Input activates the app and may move the real pointer. Mutations invalidate snapshots and coordinates: inspect again before the next action."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "oneOf"
+      ],
+      [
+        {
+          "type": "object",
+          "properties": {
+            "scope": {
+              "type": "string",
+              "const": "screen"
+            }
+          },
+          "required": [
+            "scope"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "scope": {
+              "type": "string",
+              "const": "app"
+            },
+            "pid": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "target_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "scope",
+            "pid",
+            "target_id"
+          ]
+        }
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "description"
+      ],
+      "Use the target object returned by computer_apps or computer_resolve_app. Omit only for whole-screen actions."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "x",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "y",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "direction",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "amount",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "coordinate_token",
+        "description"
+      ],
+      "Required for coordinates: token from the latest screenshot. Invalidated by the next screenshot or any mutation."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "step",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "required"
+      ],
+      [
+        "x",
+        "y",
+        "coordinate_token"
+      ]
+    ]
+  ],
+  "computer_wait": [
+    [
+      [
+        "description"
+      ],
+      "Wait up to 30 seconds. Input activates the app and may move the real pointer. Mutations invalidate snapshots and coordinates: inspect again before the next action."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "ms",
+        "description"
+      ]
+    ]
+  ],
+  "computer_check_permissions": [
+    [
+      [
+        "description"
+      ],
+      "Check Mac Accessibility and Screen Recording grants without changing them. Input activates the app and may move the real pointer. Mutations invalidate snapshots and coordinates: inspect again before the next action."
+    ]
+  ],
+  "computer_apps": [
+    [
+      [
+        "description"
+      ],
+      "List running Mac applications and obtain stable targets. Input activates the app and may move the real pointer. Mutations invalidate snapshots and coordinates: inspect again before the next action."
+    ]
+  ],
+  "computer_resolve_app": [
+    [
+      [
+        "description"
+      ],
+      "Resolve or launch a Mac app by one selector and obtain a target. Input activates the app and may move the real pointer. Mutations invalidate snapshots and coordinates: inspect again before the next action."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "bundle_id",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "app_path",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "app_name",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "step",
+        "description"
+      ]
+    ]
+  ],
+  "computer_app_state": [
+    [
+      [
+        "description"
+      ],
+      "Read an accessibility tree. Returns a snapshot_id and numbered element handles. Supply an element_id and its snapshot_id to inspect a subtree. Input activates the app and may move the real pointer. Mutations invalidate snapshots and coordinates: inspect again before the next action."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "child_offset"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "properties",
+        "pid",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "properties",
+        "target_id",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "description"
+      ],
+      "Use the target object returned by computer_apps or computer_resolve_app. Omit only for whole-screen actions."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "element_id",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "snapshot_id",
+        "description"
+      ],
+      "ID from the latest computer_app_state. Invalidated by another state read or mutation."
+    ]
+  ],
+  "computer_set_value": [
+    [
+      [
+        "description"
+      ],
+      "Set the value of an accessibility element from a fresh snapshot. Input activates the app and may move the real pointer. Mutations invalidate snapshots and coordinates: inspect again before the next action."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "properties",
+        "pid",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "properties",
+        "target_id",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "description"
+      ],
+      "Use the target object returned by computer_apps or computer_resolve_app. Omit only for whole-screen actions."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "element_id",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "snapshot_id",
+        "description"
+      ],
+      "ID from the latest computer_app_state. Invalidated by another state read or mutation."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "value",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "step",
+        "description"
+      ]
+    ]
+  ],
+  "computer_app_action": [
+    [
+      [
+        "description"
+      ],
+      "Perform press or an exact AX action name listed on an accessibility element. Input activates the app and may move the real pointer. Mutations invalidate snapshots and coordinates: inspect again before the next action."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "properties",
+        "pid",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "properties",
+        "target_id",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "target",
+        "description"
+      ],
+      "Use the target object returned by computer_apps or computer_resolve_app. Omit only for whole-screen actions."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "element_id",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "snapshot_id",
+        "description"
+      ],
+      "ID from the latest computer_app_state. Invalidated by another state read or mutation."
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "action",
+        "description"
+      ]
+    ],
+    [
+      [
+        "inputSchema",
+        "properties",
+        "step",
+        "description"
+      ]
+    ]
+  ]
+}

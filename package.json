@@ -4,9 +4,13 @@
   "private": true,
   "scripts": {
     "demo": "node examples/demo.cjs",
-    "test": "node --test test/*.test.cjs"
+    "test": "node --test test/*.test.cjs",
+    "build:desktop": "node tools/build.cjs",
+    "verify:desktop": "node tools/verify-build.cjs"
   },
   "devDependencies": {
+    "@babel/parser": "7.28.5",
+    "@electron/asar": "3.4.1",
     "zod": "4.6.7"
   },
   "dependencies": {

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>CFBundleIdentifier</key><string>local.garv.grokbot.helper</string>
+<key>CFBundleName</key><string>Grok Bot Local Helper</string>
+<key>CFBundleDisplayName</key><string>Grok Bot Local Helper</string>
+<key>CFBundleExecutable</key><string>GrokBotLocalHelper</string>
+<key>CFBundlePackageType</key><string>APPL</string>
+<key>CFBundleVersion</key><string>1</string>
+<key>LSUIElement</key><true/>
+<key>NSAppleEventsUsageDescription</key><string>Grok Bot controls apps only for local tasks you authorize.</string>
+<key>NSScreenCaptureUsageDescription</key><string>Grok Bot needs screenshots to inspect apps during tasks you authorize.</string>
+</dict></plist>
