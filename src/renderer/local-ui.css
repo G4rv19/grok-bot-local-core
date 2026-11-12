@@ -1,0 +1,354 @@
+.grok-ui {
+  font:
+    400 13px/1.45 -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  color: inherit;
+  letter-spacing: normal;
+  min-width: 0;
+}
+.grok-ui * {
+  box-sizing: border-box;
+}
+.grok-ui h2,
+.grok-ui h3,
+.grok-ui p {
+  margin: 0;
+}
+.grok-ui h2 {
+  font-size: 21px;
+  font-weight: 650;
+  letter-spacing: -0.4px;
+}
+.grok-ui h3 {
+  font-size: 14px;
+  font-weight: 600;
+}
+.grok-muted {
+  opacity: 0.64;
+}
+.grok-caption {
+  font-size: 12px;
+}
+.grok-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.grok-between {
+  justify-content: space-between;
+}
+.grok-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.grok-grow {
+  flex: 1;
+  min-width: 0;
+}
+.grok-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.grok-ui button {
+  cursor: pointer;
+}
+.grok-ui button:disabled {
+  cursor: default;
+}
+.grok-ui button:focus-visible,
+.grok-ui input:focus-visible,
+.grok-ui select:focus-visible,
+.grok-ui textarea:focus-visible {
+  outline: 2px solid #9a94ee;
+  outline-offset: 3px;
+}
+.grok-link {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  padding: 3px;
+  font: inherit;
+  opacity: 0.72;
+}
+.grok-link:hover {
+  opacity: 1;
+}
+.grok-card {
+  border: 1px solid color-mix(in srgb, currentColor 13%, transparent);
+  border-radius: 12px;
+  background: color-mix(in srgb, currentColor 3%, transparent);
+  padding: 15px;
+}
+.grok-icon {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: color-mix(in srgb, currentColor 6%, transparent);
+  flex-shrink: 0;
+}
+.grok-status {
+  font-size: 11px;
+  font-weight: 550;
+  white-space: nowrap;
+  border-radius: 20px;
+  padding: 3px 8px;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+.grok-status[data-state="connected"],
+.grok-status[data-state="completed"],
+.grok-status[data-state="ready"] {
+  color: #65bb91;
+  background: #42b98416;
+}
+.grok-status[data-state="working"],
+.grok-status[data-state="scheduled"] {
+  color: #b0a7fa;
+  background: #9d90f416;
+}
+.grok-status[data-state="attention"],
+.grok-status[data-state="error"] {
+  color: #e7a268;
+  background: #ed9a4816;
+}
+.grok-error {
+  padding: 10px 12px;
+  border: 1px solid #d7884a66;
+  border-radius: 8px;
+  background: #d7884a0b;
+  line-height: 1.5;
+}
+.grok-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.grok-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  font-size: 12px;
+}
+.grok-field.wide {
+  grid-column: 1/-1;
+}
+.grok-ui input:not([type="checkbox"]),
+.grok-ui select,
+.grok-ui textarea {
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  background: color-mix(in srgb, currentColor 4%, transparent);
+  border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  border-radius: 8px;
+  padding: 9px 10px;
+  min-height: 36px;
+}
+.grok-ui select option {
+  background: Canvas;
+  color: CanvasText;
+}
+.grok-ui textarea {
+  resize: vertical;
+  min-height: 78px;
+}
+.grok-field small {
+  opacity: 0.6;
+  font-size: 11px;
+}
+.grok-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+.grok-toggle input {
+  accent-color: #9a94ee;
+}
+.grok-rule {
+  border-top: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+  padding-top: 12px;
+  margin-top: 12px;
+}
+.grok-sections {
+  display: flex;
+  gap: 4px;
+}
+.grok-tab {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 7px;
+  opacity: 0.6;
+}
+.grok-tab[aria-selected="true"] {
+  background: color-mix(in srgb, currentColor 9%, transparent);
+  opacity: 1;
+}
+.grok-result {
+  font: inherit;
+  font-size: 12px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 180px;
+  overflow: auto;
+  padding-top: 10px;
+}
+.grok-loading {
+  height: 78px;
+  border-radius: 12px;
+  background: color-mix(in srgb, currentColor 5%, transparent);
+  animation: grok-pulse 1.3s ease-in-out infinite;
+}
+@keyframes grok-pulse {
+  50% {
+    opacity: 0.45;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .grok-loading {
+    animation: none;
+  }
+}
+.grok-connections {
+  width: 100%;
+  max-width: 650px;
+  margin: auto;
+}
+.grok-connections .grok-header {
+  padding-bottom: 18px;
+}
+.grok-connections .grok-services {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 49vh;
+  overflow: auto;
+  padding: 2px;
+}
+.grok-connections .grok-card {
+  padding: 16px;
+}
+.grok-connections .grok-description {
+  margin-top: 3px;
+}
+.grok-connections .grok-manage {
+  padding-left: 48px;
+}
+.grok-search {
+  margin: 0 0 16px;
+}
+.grok-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.grok-form > header {
+  margin-bottom: 2px;
+}
+.grok-chat-work {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 8px;
+}
+.grok-work-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 11px;
+  border: 1px solid color-mix(in srgb, currentColor 11%, transparent);
+  border-radius: 12px;
+  background: color-mix(in srgb, currentColor 3%, transparent);
+}
+.grok-work-open {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: none;
+  color: inherit;
+  border: 0;
+  font: inherit;
+  text-align: left;
+  padding: 2px;
+  min-width: 0;
+}
+.grok-work-open span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.grok-work-content {
+  padding: 10px 2px 2px;
+  max-height: min(42vh, 360px);
+  overflow: auto;
+}
+.grok-work-content .grok-card {
+  padding: 12px;
+}
+.grok-work-content .grok-card + .grok-card {
+  margin-top: 8px;
+}
+.grok-work-content .grok-card .grok-actions {
+  margin-top: 9px;
+}
+.grok-work-meta {
+  margin-top: 4px;
+  font-size: 12px;
+  opacity: 0.63;
+}
+.grok-empty {
+  text-align: center;
+  padding: 20px 12px;
+  color: inherit;
+}
+.grok-work-content .grok-form {
+  padding: 6px 8px 10px;
+}
+.grok-work-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 450px;
+}
+.grok-work-panel-header {
+  padding: 0 6px 10px;
+}
+.grok-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #aba0f2;
+  flex-shrink: 0;
+}
+@media (max-width: 650px) {
+  .grok-fields {
+    grid-template-columns: 1fr;
+  }
+  .grok-connections .grok-card {
+    padding: 12px;
+  }
+  .grok-connections .grok-manage {
+    padding-left: 0;
+  }
+  .grok-work-title {
+    max-width: 240px;
+  }
+  .grok-work-bar {
+    padding: 6px;
+  }
+  .grok-work-open .grok-caption {
+    display: none;
+  }
+}

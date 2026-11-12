@@ -1,0 +1,22 @@
+{
+  "name": "grok-bot-local-core",
+  "version": "0.3.0",
+  "private": true,
+  "scripts": {
+    "demo": "node examples/demo.cjs",
+    "test": "node --test test/*.test.cjs"
+  },
+  "devDependencies": {
+    "zod": "4.6.7"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "ajv": "8.20.0",
+    "cron-parser": "5.4.0"
+  },
+  "description": "Local agent runtime, memory, scheduling, and connectors",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  }
+}
