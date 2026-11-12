@@ -53,7 +53,10 @@ async function createHost({ dataDir, electron, publish, approve, selectFiles, de
   const modelCatalog = () => demo ? Promise.resolve([{ slug: 'demo', display_name: 'Demo model', context_window: 100000 }]) : provider.models();
   const accountKey = () => account().accountId || 'demo';
   let models = [];
-  const getModel = () => settings.models[accountKey()] || models[0]?.slug;
+  const getModel = () => {
+    const saved = settings.models[accountKey()];
+    return models.find(model => model.slug === saved)?.slug || models[0]?.slug;
+  };
   const runtime = new AgentRuntime({
     store, skills, provider, nativeTools, gateway, getPermission, getModel, modelCatalog,
   });
@@ -77,9 +80,12 @@ async function createHost({ dataDir, electron, publish, approve, selectFiles, de
   } });
   const startWork = () => gateway.tasks.start().catch(error => console.error(error.message));
   const refreshModels = async () => {
-    models = await modelCatalog();
-    if (!models.some(item => item.slug === getModel())) {
-      delete settings.models[accountKey()];
+    const key = accountKey();
+    const next = await modelCatalog();
+    if (key !== accountKey() || account().kind !== 'connected') return;
+    models = next;
+    if (settings.models[key] && !models.some(item => item.slug === settings.models[key])) {
+      delete settings.models[key];
       writeJSON(settingsFile, settings);
     }
     startWork();
